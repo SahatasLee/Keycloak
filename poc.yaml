@@ -1,0 +1,25 @@
+production: false
+auth:
+  adminUser: root
+  adminPassword: "P@ssw0rd"
+resources:
+  requests:
+    cpu: 2
+    memory: 512Mi
+postgresql:
+  enabled: true
+  auth:
+    postgresPassword: "P@ssw0rd"
+    username: bn_keycloak
+    password: "P@ssw0rd"
+    database: bitnami_keycloak
+    existingSecret: ""
+    secretKeys:
+      userPasswordKey: password
+  architecture: standalone
+service:
+  type: LoadBalancer
+ingress:
+  enabled: true
+  ingressClassName: "traefik"
+  hostname: keycloak.leapsolutions.co.th
